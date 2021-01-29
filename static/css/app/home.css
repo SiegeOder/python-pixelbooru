@@ -1,0 +1,35 @@
+body {
+    align-items: center;
+    padding-top: 2rem;
+}
+#logo{
+    justify-content: center;
+    flex-wrap: wrap;
+}
+#logo > a > img {
+    height: 20rem;
+}
+
+#logo > a > span {
+    font-size: 4rem;
+}
+#navigation{
+    width: 20rem;
+}
+#navigation nav{
+    display: flex;
+    justify-content: space-around;
+}
+#navigation input{
+    width: 100%;
+    margin: 0.25rem 0;
+}
+#counter img{
+    width: 7rem;
+}
+
+@media (max-width: 1080px){
+    #logo > a > span {
+        font-size: 3rem;
+    }
+}

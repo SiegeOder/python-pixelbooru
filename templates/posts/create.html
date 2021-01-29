@@ -1,0 +1,30 @@
+{% extends 'app/app.html' %}{% load static %}
+
+{% block includes %}
+<style>
+    #main{
+        justify-content: center;
+    }
+    .upload-form{
+        display: flex;
+        align-items: center;
+    }
+    .upload-form > *:not(:first-child){
+        margin-left: 0.5rem;
+    }
+</style>
+{% endblock %}
+
+
+{% block content %}
+<div>
+    <div class="border padding fg">
+        <form class="upload-form" action="{% url 'posts:create' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.errors }}
+            {{ form.image }}
+            <input type="submit" class="active link bg border" value="Upload">
+        </form>
+    </div>
+</div>
+{% endblock %}

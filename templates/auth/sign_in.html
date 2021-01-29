@@ -1,0 +1,19 @@
+{% extends 'app/app.html' %}{% load static %}
+
+{% block includes %}
+<link href="{% static 'css/auth/auth.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div id="content">
+    <span>Sign in to PixelBooru</span>
+    <form class="padding border fg auth-form" action="{% url 'auth:sign_in' %}" method="post">
+        {% csrf_token %}
+        {{form.errors}}
+        {{form.username}}
+        {{form.password}}
+        <input class="active border bg link" type="submit" value="Sign in">
+    </form>
+    <a href="{% url 'auth:sign_up' %}">Sign up</a>
+</div>
+{% endblock %}

@@ -1,0 +1,9 @@
+#mascot {
+    position: fixed;
+    left: 0.5rem;
+    bottom: 1rem;
+    width: 10vw;
+}
+#mascot img {
+    width: 100%;
+}

@@ -1,0 +1,24 @@
+.pagination {
+    text-align: center;
+    list-style: none;
+}
+.pagination > .page-item {
+    margin-top: 1rem;
+    display: inline-block;
+    border-style: solid;
+    border-color: #000;
+    border-width: 1px;
+    border-radius: 0.25rem;
+    transition-duration: 0.5s;
+}
+.pagination > .page-item > .page-link {
+    padding: 0.5rem;
+    display: block;
+}
+.pagination > .page-item:hover {
+    border-color: #FF918B;
+}
+.pagination .active {
+    background-color: inherit;
+    border: none;
+}

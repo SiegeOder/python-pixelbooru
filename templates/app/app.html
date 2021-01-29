@@ -1,0 +1,53 @@
+<!doctype html>{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PixelBooru</title>
+    <link rel="shortcut icon" href="{% static 'images/app/favicon.png' %}" type="image/png">
+    <link rel="icon" href="{% static 'images/app/favicon.png' %}" type="image/png">
+    <link href="{% static 'css/app/styles.css' %}" rel="stylesheet">
+    <link href="{% static 'css/app/app.css' %}" rel="stylesheet">
+    {% block includes %}{% endblock %}
+</head>
+<body class="bg">
+<div id="header" class="fg">
+    <div id="logo">
+        <a href="{% url 'home' %}">
+            <span>P</span><span>ixel</span><span>B</span><span>ooru</span>
+        </a>
+    </div>
+    <div id="profile" class="bg border">
+        {% if user.is_authenticated %}
+        <a href="{% url 'profiles:profile' user.id %}">
+            <div>
+                <img src="{{user.profile.image.url}}" alt="">
+            </div>
+            <span>
+                {% if user.username|length > 16 %}
+                {{user.username|slice:16}}…
+                {% else %}
+                {{user.username}}
+                {% endif %}
+            </span>
+        </a>
+        {% else %}
+        <a href="{% url 'auth:sign_in' %}">
+            <div>
+                <img src="{% static 'images/app/guest.png' %}" alt="">
+            </div>
+            <span>Guest</span>
+        </a>
+        {% endif %}
+    </div>
+</div>
+<div id="main">
+    {% block content %}{% endblock %}
+</div>
+<div id="footer" class="fg">
+    <span>by <a href="{% url 'profiles:profile' 1 %}">SODA</a> 2020</span>
+</div>
+</body>
+</html>

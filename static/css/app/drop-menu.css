@@ -1,0 +1,51 @@
+.drop-menu{
+    display: flex;
+    justify-content: flex-end;
+}
+.drop-menu:hover > .drop-menu-body{
+    visibility: visible;
+    opacity: 1;
+ }
+.drop-menu-body{
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    visibility: hidden;
+    opacity: 0;
+    transition-duration: 0.25s;
+}
+.drop-menu-body a,
+.drop-menu-body input{
+    padding: 0.25rem 1rem;
+    border: 1px #00000000;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+}
+.drop-menu-body a:first-child,
+.drop-menu-body input:first-child{
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+    border-bottom-style: solid;
+    border-top-style: none;
+}
+.drop-menu-body a:last-child,
+.drop-menu-body input:last-child{
+    border-bottom-left-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+    border-bottom-style: none;
+    border-top-style: solid;
+}
+.drop-menu-body a:hover,
+.drop-menu-body input:hover{
+    background-color: #282C34;
+    border-color: black;
+}
+.drop-menu-body a:only-child,
+.drop-menu-body input:only-child{
+    border-bottom-style: none;
+    border-top-style: none;
+}

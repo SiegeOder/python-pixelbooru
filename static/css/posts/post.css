@@ -1,0 +1,81 @@
+#sidebar {
+    flex: 1 1;
+    height: fit-content;
+    margin-right: 0.5rem;
+}
+#sidebar > div > div:not(:first-child){
+    margin-top: 1rem;
+}
+#content {
+    flex: 4 0;
+}
+.tagbar{
+    display: flex;
+    flex-direction: column;
+}
+.tagbar > li{
+    display: flex;
+}
+.tagbar > li > form{
+    display: flex;
+}
+.tagbar input{
+    padding: 0;
+    border: none;
+    background: inherit;
+    cursor: pointer;
+    margin-right: 0.5rem;
+}
+.tagbar input[type="text"]{
+    display: none;
+}
+.tagbar .tag-type-general input{
+    color: #E06C75;
+}
+.tagbar .tag-type-general input:hover{
+    color: #FF918B;
+}
+.tagbar .tag-type-artist input{
+    color: #E0E000;
+}
+.tagbar .tag-type-artist input:hover{
+    color: #FFFF00;
+}
+.tagbar .tag-type-character input{
+    color: #00E000;
+}
+.tagbar .tag-type-character input:hover{
+    color: #00FF00;
+}
+.tagbar .tag-type-copyright input{
+    color: #E000E0;
+}
+.tagbar .tag-type-copyright input:hover{
+    color: #FF00FF;
+}
+.comment-area > div{
+    margin-top: 0.5rem;
+}
+.user-container {
+    grid-template-columns: 1fr 4fr;
+}
+.comment-area form{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+.comment-area form > input[type="submit"]{
+    padding: 0.5rem 2rem;
+}
+.comment-area textarea{
+    resize: none;
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+@media (max-width: 1080px){
+    #sidebar{
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+    }
+}

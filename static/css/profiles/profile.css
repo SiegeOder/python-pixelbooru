@@ -1,0 +1,12 @@
+#main{
+    flex-direction: column;
+    margin: 0.5rem 20vw
+}
+.user-container{
+    margin-bottom: 0.5rem;
+}
+@media (max-width: 1080px){
+    #main{
+        margin: 0.5rem;
+    }
+}

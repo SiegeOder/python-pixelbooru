@@ -1,0 +1,23 @@
+#content{
+    margin: 0 auto auto;
+    text-align: center;
+}
+#content > span{
+    font-size: 1.5rem;
+}
+.auth-form{
+    display: flex;
+    flex-direction: column;
+    width: 17rem;
+    word-break: break-word;
+    text-align: left;
+}
+.auth-form > ul{
+    list-style: none;
+}
+.errorlist > li{
+    word-break: break-word;
+}
+.auth-form > input{
+    margin: 0.25rem 0;
+}

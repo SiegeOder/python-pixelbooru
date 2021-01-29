@@ -1,0 +1,33 @@
+.user-container {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-gap: 0.25rem;
+    align-items: start;
+}
+.user-container-image{
+    display: grid;
+}
+.user-container-image > *:first-child {
+    padding-top: 100%;
+    position: relative;
+}
+.user-container-image > *:first-child > img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    top: 0;
+}
+.user-container-body {
+    display: flex;
+    flex-direction: column;
+}
+.user-container-body > div{
+    display: flex;
+    justify-content: space-between;
+}
+.user-container-body > div > *:first-child,
+.user-container-body > div > *:first-child > *:first-child{
+    font-size: 1.5rem;
+    width: fit-content;
+}

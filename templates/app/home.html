@@ -1,0 +1,44 @@
+<!doctype html>{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PixelBooru</title>
+    <link rel="shortcut icon" href="{% static 'images/app/favicon.png' %}" type="image/png">
+    <link rel="icon" href="{% static 'images/app/favicon.png' %}" type="image/png">
+    <link href="{% static 'css/app/styles.css' %}" rel="stylesheet">
+    <link href="{% static 'css/app/app.css' %}" rel="stylesheet">
+    <link href="{% static 'css/app/home.css' %}" rel="stylesheet">
+</head>
+<body class="fg">
+<div id="logo">
+    <a href="{% url 'home' %}">
+        <span>P</span><span>ixel</span><span>B</span><span>ooru</span>
+    </a>
+    <a href="javascript:void">
+        <img src="{% static 'images/app/bathory.png' %}" alt="Hi!~">
+    </a>
+</div>
+<div id="navigation">
+    <nav>
+        <a href="{% url 'posts:index' %}">Posts</a>
+        <a href="#">Comments</a>
+        <a href="#">Tags</a>
+    </nav>
+    <form action="{% url 'posts:index' %}" method="get">
+        {% csrf_token %}
+        <input type="text" name="tags" placeholder="Search" class="bg border">
+    </form>
+</div>
+<div id="counter">
+    {% for i in posts %}
+    {% with 'images/app/'|add:i|add:'.gif' as image_static %}
+    <img src="{% static image_static %}" alt="">
+    {% endwith %}
+    {% endfor %}
+</div>
+<span>Serving {{ posts }} posts – running PyImouto 2.2.8</span>
+</body>
+</html>

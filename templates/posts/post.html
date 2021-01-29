@@ -1,0 +1,95 @@
+{% extends 'app/app.html' %}{% load static %}
+
+{% block includes %}
+<link href="{% static 'css/app/user-container.css' %}" rel="stylesheet">
+<link href="{% static 'css/app/drop-menu.css' %}" rel="stylesheet">
+<link href="{% static 'css/posts/post.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div id="sidebar">
+    <div class="fg border padding">
+        <div>
+            <span>Tags:</span>
+            {% if tags %}
+            <ul class="tagbar">
+                {% for tag in tags %}
+                <li class="tag-type-{{tag.type}}">
+                    <form action="{% url 'posts:index' %}" method="get">
+                        {% csrf_token %}
+                        <input type="text" name="tags" value="{{tag.name}}">
+                        <input type="submit" value="?">
+                    </form>
+                    <form action="{% url 'posts:index' %}" method="get">
+                        {% csrf_token %}
+                        <input type="text" name="tags" value="{{tag.name}}">
+                        <input type="submit" value="{{tag.name}}">
+                    </form>
+                </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <span>#tag_me</span>
+            {% endif %}
+        </div>
+        <div>
+            <span>Statistics:</span><br>
+            <span>Posted: {{post.created_at|date:'Y.m.d H:i'}}</span><br>
+            <span>Author: <a href="{% url 'profiles:profile' post.author.user.id %}">{{post.author.user.username}}</a></span><br>
+            <div style="width: 10rem">
+                <a href="{% url 'profiles:profile' post.author.user.id %}">
+                    <img class="border bg" style="width: 100%; display: block;" src="{{ post.author.image.url }}" alt="">
+                </a>
+            </div>
+        </div>
+        <div>
+            <span>Options:</span><br>
+            <a href="{{post.image.url}}" download>Download</a><br>
+            <a href="#">Report</a><br>
+        </div>
+    </div>
+</div>
+<div id="content">
+    <div class="fg border padding">
+        <img class="border" style="width: 100%; display: block;" src="{{ post.image.url }}" alt="">
+    </div>
+    <div class="comment-area">
+        <div class="fg border padding">
+        {% if user.is_authenticated %}
+            <form action="{% url 'posts:comment' post.id %}" method="post">
+                {% csrf_token %}
+                <input style="display: none" type="text" name="user" value="{{ user.id }}">
+                <textarea required class="bg border" rows="7" name="text" placeholder="Add a comment..."></textarea>
+                <input type="submit" value="Post" class="active border bg link">
+            </form>
+        {% else %}
+            <a href="{% url 'auth:sign_in' %}">You must be signed in to post comments...</a>
+        {% endif %}
+        </div>
+        {% for comment in comments %}
+        <div class="user-container fg border padding">
+            <div class="user-container-image">
+                <a href="{% url 'profiles:profile' comment.author.user.id %}">
+                    <img class="border bg" src="{{ comment.author.image.url }}" alt="">
+                </a>
+            </div>
+            <div class="user-container-body">
+                <div>
+                    <div>
+                        <a href="{% url 'profiles:profile' comment.author.user.id %}">{{ comment.author.user.username }}</a>
+                        <span>2020.06.33 22:14</span>
+                    </div>
+                    <div class="drop-menu">
+                        <span>•••</span>
+                        <div class="drop-menu-body bg border ">
+                            <a href="#">Report</a>
+                        </div>
+                    </div>
+                </div>
+                <span>{{ comment.text }}</span>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

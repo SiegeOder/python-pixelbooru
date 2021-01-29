@@ -1,0 +1,95 @@
+html, body {
+    height: 100%;
+}
+body {
+    display: flex;
+    flex-direction: column;
+}
+#header {
+    display: flex;
+    border-bottom: 1px solid black;
+    padding: 1rem 5vw 1rem 1rem;
+    justify-content: space-between;
+    align-items: center;
+}
+#main {
+    flex: 1 0;
+    margin: 0.5rem 5vw;
+    display: flex;
+}
+#footer {
+    border-top: 1px solid black;
+    text-align: center;
+}
+#footer span {
+    color: #E06C75;
+}
+#logo {
+    display: flex;
+    align-items: center;
+}
+#logo > a {
+    color: inherit;
+}
+#logo > a > span {
+    word-break: keep-all;
+    color: inherit;
+    font-size: 3rem;
+    font-family: PixelBooru, Verdana, Arial, Consolas, monospace;
+    transition-duration: 0.5s;
+    text-shadow: 2px 2px black,
+    -2px -2px black,
+    2px -2px black,
+    -2px 2px black;
+}
+#logo > a > span:nth-child(odd) {
+    color: #E06C75;
+}
+#logo > a:hover > span {
+    color: #FF918B;
+}
+#profile {
+    padding: 0.25rem 1rem 0.25rem 0.25rem;
+    border-radius: 4rem;
+}
+#profile > a {
+    display: flex;
+    align-items: center;
+}
+#profile > a > div {
+    position: relative;
+    height: 4rem;
+    width: 4rem;
+}
+#profile > a > div > img{
+    border-radius: 4rem;
+    border: 1px solid #000000;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+#profile > a > span {
+    margin: 0 0.5rem;
+    font-size: 1.5rem;
+    word-break: keep-all;
+}
+#profile :hover img {
+    border-color: #FF918B;
+}
+
+@media (max-width: 1080px){
+    #main{
+        flex-direction: column;
+        margin: 0.5rem;
+    }
+    #logo > a > span {
+        font-size: 2rem;
+    }
+    #profile > a > div {
+        height: 2.5rem;
+        width: 2.5rem;
+    }
+    #profile > a > span {
+        font-size: 1rem;
+    }
+}

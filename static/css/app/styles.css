@@ -1,0 +1,54 @@
+@font-face {
+    font-family: PixelBooru;
+    src: url(pixelbooru.ttf);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Arial, Consolas, monospace;
+    font-size: 1rem;
+    color: #ABB2BF;
+    text-shadow: 1px 1px black,
+    -1px -1px black,
+    1px -1px black,
+    -1px 1px black;
+    word-break: break-all;
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
+}
+a, a * , .link{
+    color: #E06C75;
+    text-decoration: none;
+    transition-duration: 0.5s;
+}
+a:hover, a:hover *, .link:hover{
+    color: #FF918B;
+}
+input, textarea{
+    outline: none;
+    padding: 0.5rem 0.25rem;
+}
+.bg {
+    background-color: #21252B;
+}
+.fg {
+    background-color: #282C34;
+}
+.border {
+    border: 1px solid black;
+    border-radius: 0.25rem;
+}
+.border.active,
+input.border,
+textarea.border{
+    transition-duration: 0.5s;
+}
+.border.active:hover,
+input.border:focus,
+textarea.border:focus{
+    border-color: #FF918B;
+}
+.padding {
+    padding: 1rem;
+}
